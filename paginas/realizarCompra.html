@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Compra - Kraken Store</title>
+    <link rel="stylesheet" href="../css/compra.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="../imagenes/logo.webp" alt="Logo de la Tienda">
+            </div>
+            <ul class="nav-menu left">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="../paginas/consultarInventario.html">Inventario</a></li>
+            </ul>
+            <ul class="nav-menu right">
+                <div class="profile-edit">
+                    <i class="fa-regular fa-user"></i> <a href="#">Editar perfil</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="product-container">
+        <!-- Galería de imágenes -->
+        <div class="product-images">
+            <img src="../imagenes/Pantalon/Img1.webp" alt="Vista frontal del pantalón">
+            <img src="../imagenes/Pantalon/Img2.webp" alt="Vista trasera del pantalón">
+            <img src="../imagenes/Pantalon/Img3.webp" alt="Vista trasera del pantalón">
+        </div>
+
+        <!-- Información del producto -->
+        <div class="product-details">
+            <h1>Pantalones Formales de Jacquard Barocco</h1>
+            <p class="price">COP 4,172,900</p>
+            <form action="../index.php" method="POST" onsubmit="return validateForm()">
+                <div class="size-selector">
+                    <span>SELECCIONAR TALLA:</span>
+                    <a href="#" class="size-guide">Guía de tallas</a>
+                    <div class="sizes-container">
+                        <div class="sizes">
+                            <button type="button" onclick="selectSize('28')">28</button>
+                            <button type="button" onclick="selectSize('30')">30</button>
+                            <button type="button" onclick="selectSize('32')">32</button>
+                            <button type="button" onclick="selectSize('34')">34</button>
+                            <button type="button" onclick="selectSize('36')">36</button>
+                        </div>
+                        <select class="units" name="unidades" required>
+                            <option value="">Unidades</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" name="talla" id="selected-size" required>
+                <button type="button" class="btn-secondary">Añadir al Carrito</button>
+                <a href="resumenpedido.html"><button type="submit" class="btn btn-secondary" name="productodes">COMPRAR</button></a>
+
+            </form>
+            <script>
+                function selectSize(size) {
+                    document.getElementById('selected-size').value = size;
+                    alert("Talla seleccionada: " + size);
+                }
+
+                function validateForm() {
+                    var talla = document.getElementById('selected-size').value;
+                    var unidades = document.querySelector('select[name="unidades"]').value;
+                    if (talla === "" || unidades === "") {
+                        alert("Por favor seleccione una talla y una cantidad.");
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+            <div class="accordion">
+                <h3>DETALLES</h3>
+                <div class="content">
+                    <p>Estos pantalones formales de lana presentan un diseño de jacquard Barocco en el mismo tono. Este
+                        modelo ajustado se puede combinar con un blazer de traje a juego.<br>
+                        Patrón barroco<br>
+                        Trabillas<br>
+                        Bolsillos laterales<br>
+                        Bolsillos traseros ribeteados<br>
+                        Composición exterior: 100 % lana virgen pura<br>
+                        Forro 1: 100 % cupro<br>
+                        Forro 2: 100 % algodón</p>
+                </div>
+                <h3>CUIDADO</h3>
+                <div class="content">
+                    <p>Lee atentamente la etiqueta del producto del interior de la prenda para obtener información
+                        acerca de su cuidado y limpieza. Si tienes alguna duda o pregunta, visita nuestra página de guía
+                        de cuidados o déjalo en manos de un servicio de limpieza especializado.</p>
+                </div>
+                <h3>TALLA Y CORTE</h3>
+                <div class="content">
+                    <p>La modelo mide 1,88 m y lleva la talla 48 IT</p>
+                </div>
+                <h3>ENVIO Y DEVOLUCIONES</h3>
+                <div class="content">
+                    <p>Envío Urgente Gratuito<br>
+                        -El envío será diferente dependiendo del país de destino. Para obtener más información, consulte
+                        la sección de Envío y Entrega.<br>
+                        Devoluciones<br>
+                        -Los costos de devolución pueden variar dependiendo del destino. Para obtener más información,
+                        consulte nuestra Política de Devolución.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Kraken Store - Todos los derechos reservados.</p>
+    </footer>
+    <script src="../js/compra.js"></script>
+</body>
+
+</html>
